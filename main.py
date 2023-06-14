@@ -14,7 +14,7 @@ running = False  # Updated: Game starts when "Start" button is pressed
 start_button = pygame.Rect(screen_width // 2 - 50, screen_height // 2 - 25, 100, 50)  # Rect for the "Start" button
 ball_size = [50, 25]
 sword_size = [80, 80]  # Updated swordfish size
-sword_hitbox_radius = 25  # Radius of the swordfish hitbox
+sword_hitbox_radius = 50  # Radius of the swordfish hitbox
 random_ball_x = random.randint(0, screen_width - 50)
 random_ball_y = random.randint(0, screen_height - 50)
 random_food_x = random.randint(0, screen_width - 50)
@@ -74,6 +74,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.KEYDOWN:
+            # Moves swordfish
             if event.key == pygame.K_UP or event.key == ord("w"):
                 y_change -= 3
             if event.key == pygame.K_DOWN or event.key == ord("s"):
@@ -125,7 +126,7 @@ while running:
             else:
                 # Check collision with swordfish
                 distance_to_swordfish = math.sqrt((new_x - sword_x) ** 2 + (new_y - sword_y) ** 2)
-                if distance_to_swordfish+100 < sword_hitbox_radius:
+                if distance_to_swordfish < sword_hitbox_radius:
                     # Avoid the swordfish
                     angle_to_swordfish = math.atan2(sword_y - balls_y[i], sword_x - balls_x[i])
                     dx = -ball_speed * math.cos(angle_to_swordfish)
