@@ -3,5 +3,5 @@ This project attempts to show natural selection by having "fish" who will detect
  
 ## Usage
 1. Install required packages using `pip install -r requirements.txt`.
-2. Downloaded the included sword0.png file
-3. Run the lint_files script.
+2. Downloaded the included sword0.png and goldfish.png files
+3. Make sure that all of your files are in the same folder
